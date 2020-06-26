@@ -33,7 +33,7 @@ var threeSum = function(nums) {
     return arr;
 };
 
-console.log(threeSum( [-4,-4,8]));
+console.log(threeSum(  [-1, 0, 1, 2, -1, -4]));
 // console.log(threeSum( [-1, 0, 1, 2, -1, -4]));
 // console.log(threeSum( [0,0,0,0]));
 // console.log(threeSum( [0,0]));
