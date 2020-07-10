@@ -13,4 +13,4 @@ var subtractProductAndSum = function(n) {
         sum += Number(nS[i]);
     }
     return products-sum;
-};
+};  

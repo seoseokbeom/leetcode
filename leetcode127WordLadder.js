@@ -10,7 +10,8 @@ var ladderLength = function(beginWord, endWord, wordList) {
     while(queue.length) {
         let p = queue.shift();
         if(p.node == endWord) return p.height;
-        for(var i=0; i<wordList.length; i++){
+        let limit = wordList.length;
+        for(var i=0; i<limit; i++){
             for(var j=0; j<wordList[i].length; j++){
                 if(p.node[j]==wordList[i][j]) count++;
             }
@@ -18,6 +19,8 @@ var ladderLength = function(beginWord, endWord, wordList) {
             if(count==beginWord.length-1) {
                 queue.push({node:wordList[i], height:p.height+1});
                 wordList.splice(i,1);
+                i--;
+                limit--;
             }
             count=0;
             

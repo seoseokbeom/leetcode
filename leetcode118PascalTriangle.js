@@ -16,7 +16,7 @@ var createRow = (n) => {
 }
 var generate = function(numRows) {
     if(numRows==0) return [];
-    if(numRows==1) return [[1]];
+    if(numRows==1) return [[1]]; 
     if(numRows==2) return [[1],[1,1]];
     let arr = [];
     for(var i=1; i<=numRows; i++){
