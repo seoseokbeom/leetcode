@@ -9,20 +9,20 @@ var jump = function(nums) {
         idx: 0,
         count:0
     };
-    let dp = Array(nums.length).fill(0);
+    let visited = Array(nums.length).fill(0);
     queue.push({...str});
     while(queue.length) {
-        var first = {...queue[0]};
-        dp[first.idx] = 1;
-        for(var i=first.val; i>=1; i--) {
-            if(dp[first.idx+i]) continue;
-            if(first.idx+i >= nums.length-1) return first.count+1;
-            if(first.idx+i + nums[first.idx+i] >= nums.length-1) return first.count+2;
-            str.idx= first.idx+i;
-            str.val= nums[first.idx+i];
-            str.count= first.count+1;
+        var tmp = {...queue[0]};
+        visited[tmp.idx] = 1;
+        for(var i=tmp.val; i>=1; i--) {
+            if(visited[tmp.idx+i]) continue;
+            if(tmp.idx+i >= nums.length-1) return tmp.count+1;
+            if(tmp.idx+i + nums[tmp.idx+i] >= nums.length-1) return tmp.count+2;
+            str.idx= tmp.idx+i;
+            str.val= nums[tmp.idx+i];
+            str.count= tmp.count+1;
             queue.push({...str});
-            dp[first.idx+i]=1;
+            visited[tmp.idx+i]=1;
         }        
         queue.shift();
     }
