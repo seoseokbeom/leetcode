@@ -11,9 +11,8 @@ var letterCombinations = function(digits) {
             res.push(str);
             return;
         }
-        let indexOfArr = Number(digits[idxOfDigits]);  //ex) digits[idxOfDigits] = 3
-        console.log('indexOfArr',indexOfArr, 'arr[indexOfArr]', arr[indexOfArr]);
-        let btnStr = arr[indexOfArr]; 
+        let btnNum = Number(digits[idxOfDigits]);  //ex) digits[idxOfDigits] = 3
+        let btnStr = arr[btnNum]; 
         for(var j=0; j< btnStr.length; j++) {
             str+=btnStr[j];
             recursion(idxOfDigits+1,str);
@@ -22,5 +21,4 @@ var letterCombinations = function(digits) {
     }
     recursion(0, '', digits);
     return res;
-    
 };

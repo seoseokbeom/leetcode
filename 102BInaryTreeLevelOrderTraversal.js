@@ -9,24 +9,21 @@
 /**
  * @param {TreeNode} root
  * @return {number[][]}
- */
+ */    
+
 var levelOrder = function(root) {
-    var arr = [];
-    
-    var recursion = (node, count) => {
+    let arr = [];
+    if(!root) return [];
+    var recursion = (node, c) => {
         if(!node) return;
-        if(arr.length < count) {
+        if(arr.length-1 < c) {
             arr.push([node.val]);
-        } else {
-            arr[count-1].push(node.val);
+        } else{
+            arr[c].push(node.val);
         }
-        console.log(node.val, count);
-        recursion(node.left, count+1);
-        recursion(node.right, count+1);
+        recursion(node.left, c+1);
+        recursion(node.right, c+1);
     }
-    
-    recursion(root, 1);
-    console.log(arr);
+    recursion(root, 0);
     return arr;
-    
 };

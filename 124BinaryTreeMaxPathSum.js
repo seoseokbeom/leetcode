@@ -30,3 +30,5 @@ var maxPathSum = function(root) {
     }
     return recursion2(root);
 };
+
+console.log(maxPathSum)
