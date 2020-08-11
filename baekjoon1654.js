@@ -22,10 +22,6 @@ rl.on('line', function (line) {
                 bool ? start = mid :  end = mid;
                 return binarySearch(start,end);
             } 
-            // var cutting = (k,n,arr) => {
-            //     let hi = arr[0];
-            //     return binarySearch(1,hi);
-            // }
             let res = binarySearch(1,arr[0]);
             console.log(res);
             rl.close();
@@ -35,3 +31,9 @@ rl.on('line', function (line) {
   .on('close', function () {
   process.exit();
 });
+
+
+            // var cutting = (k,n,arr) => {
+            //     let hi = arr[0];
+            //     return binarySearch(1,hi);
+            // }
