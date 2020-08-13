@@ -1,3 +1,11 @@
-let arr = [1,2,3,4,2,3];
+let wrongMap = new Map()
+wrongMap.set('bla', 'blaa')
+wrongMap.set('bla2', 'blaa2')
 
-console.log(Math.max(1,4,2));
+console.log(wrongMap) 
+console.log(wrongMap.has('bla'))  
+console.log(wrongMap.get('bla2'))  
+console.log(wrongMap) 
+console.log(wrongMap.delete('bla')) 
+console.log(wrongMap.delete('blaa')) 
+console.log(wrongMap) 

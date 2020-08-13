@@ -16,7 +16,7 @@ var levelOrder = function(root) {
     if(!root) return [];
     var recursion = (node, c) => {
         if(!node) return;
-        if(arr.length-1 < c) {
+        if(arr.length-1 < c) {  
             arr.push([node.val]);
         } else{
             arr[c].push(node.val);
