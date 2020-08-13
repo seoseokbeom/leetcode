@@ -1,4 +1,11 @@
-
+var print_path = (arr) => {   
+    let str='';
+    for(var i=0; i<arr.length; i++) {
+        str+=arr[i];
+        if(i<arr.length-1) str+=' -> ';    
+    }
+    console.log(str);
+}
 var openLock = function(deadends, target) {
     let min = 20;
     let visited = new Set();
@@ -9,14 +16,15 @@ var openLock = function(deadends, target) {
         let size = queue.length;
         while(size>0) {
             let path = queue.shift();
-            // arr.slice(-1)[0] 
-            let lock_position = path.slice(-1)[0];
-            console.log(lock_position);
+            let lock_position = path.slice(-1)[0]; //path.slice(-1)[0] == path[path.length-1]
             if(deadends.includes(lock_position)) {
                 size--;
                 continue;
             }
-            if(lock_position==target) return path;
+            if(lock_position==target) {
+                print_path(path);
+                return level;
+            };
             let sb = lock_position;
             for(var i=0; i<4; i++) {
                 let current_position=sb.charAt(i);
@@ -51,5 +59,5 @@ for(var i=0; i<ans.length; i++) {
     str+=ans[i];
     if(i<ans.length-1) str+=' -> ';
 }
-console.log(str);
+// console.log(str);
 // console.log(openLock(["0000"], "0009"));
