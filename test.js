@@ -9,3 +9,7 @@ console.log(wrongMap)
 console.log(wrongMap.delete('bla')) 
 console.log(wrongMap.delete('blaa')) 
 console.log(wrongMap) 
+
+let arr = [1,3,2];
+arr.sort((a,b)=> a-b);
+console.log(arr);
