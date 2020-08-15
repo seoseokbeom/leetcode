@@ -13,3 +13,9 @@ console.log(wrongMap)
 let arr = [1,3,2];
 arr.sort((a,b)=> a-b);
 console.log(arr);
+
+let a ;
+console.log(a, ~a, ~~a);
+console.log(~1, ~0, ~-1);
+console.log(~~1, ~~0, ~~-1);
+console.log(~2.4, ~~2.4, ~-2.4, ~~-2.4);
