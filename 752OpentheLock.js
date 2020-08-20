@@ -21,20 +21,19 @@ var openLock = function(deadends, target) {
                 size--;
                 continue;
             }
-            if(lock_position==target) {
+            if(lock_position==target) { 
                 print_path(path);
                 return level;
             };
             let sb = lock_position;
             for(var i=0; i<4; i++) {
-                let current_position=sb.charAt(i);
-                let s1 = sb.slice(0,i) + (current_position == '9' ? 0 : current_position-'0'+1) + sb.slice(i+1);
-                let s2 = sb.slice(0,i) + (current_position == '0' ? 9 : current_position - '0' -1 ) +sb.slice(i+1);
+                let current=sb.charAt(i);
+                let s1 = sb.slice(0,i) + (current == '9' ? 0 : current-'0'+1) + sb.slice(i+1);
+                let s2 = sb.slice(0,i) + (current == '0' ? 9 : current - '0' -1 ) +sb.slice(i+1);
                 if(!visited.has(s1) && !deadends.includes(s1)) {
                     let new_path = [...path];
                     new_path.push(s1);
                     queue.push(new_path);
-                    // queue.push(s1);
                     visited.add(s1);
                 }
 
@@ -42,7 +41,6 @@ var openLock = function(deadends, target) {
                     let new_path = [...path];
                     new_path.push(s2);
                     queue.push(new_path);
-                    // queue.push(s2);
                     visited.add(s2);
                 }
             }
