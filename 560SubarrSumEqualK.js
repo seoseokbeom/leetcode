@@ -13,6 +13,7 @@ var subarraySum = function(nums, k) {
         while(j<nums.length) {
             sum+=nums[j++];
             if(sum==k)  count++;
+            
         }
     }
     return count;
