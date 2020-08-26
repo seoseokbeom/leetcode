@@ -1,21 +1,5 @@
-let wrongMap = new Map()
-wrongMap.set('bla', 'blaa')
-wrongMap.set('bla2', 'blaa2')
-
-console.log(wrongMap) 
-console.log(wrongMap.has('bla'))  
-console.log(wrongMap.get('bla2'))  
-console.log(wrongMap) 
-console.log(wrongMap.delete('bla')) 
-console.log(wrongMap.delete('blaa')) 
-console.log(wrongMap) 
-
-let arr = [1,3,2];
-arr.sort((a,b)=> a-b);
+let arr =[0];
+arr[1]=1;
 console.log(arr);
 
-let a ;
-console.log(a, ~a, ~~a);
-console.log(~1, ~0, ~-1);
-console.log(~~1, ~~0, ~~-1);
-console.log(~2.4, ~~2.4, ~-2.4, ~~-2.4);
+console.log('SA'.charCodeAt(1));
