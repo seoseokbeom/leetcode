@@ -1,4 +1,7 @@
 {
+    
+    "editor.minimap.enabled": false,
+    
     "compilerOptions": {
         "target": "esnext",
         "watch" : true,
