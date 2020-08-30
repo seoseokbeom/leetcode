@@ -20,16 +20,17 @@ var reverseList = function (head) {
     prev = node;
     node = node.next;
   }
-};
-
-var reverseList = function (head) {
-  var prev = null;
-  var nextNode;
-  while (head) {
-    nextNode = head.next;
-    head.next = prev;
-    prev = head;
-    head = nextNode;
-  }
   return prev;
 };
+
+// var reverseList = function (head) {
+//   var prev = null;
+//   var nextNode;
+//   while (head) {
+//     nextNode = head.next;
+//     head.next = prev;
+//     prev = head;
+//     head = nextNode;
+//   }
+//   return prev;
+// };

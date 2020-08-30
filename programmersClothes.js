@@ -1,2 +1,1 @@
-function solution(n, lost, reserve) {
-}
+function solution(n, lost, reserve) {}

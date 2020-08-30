@@ -15,7 +15,7 @@ function rightorwrong(s) {
   return result;
 }
 // console.log(rightorwrong(""));
-console.log("rightworong", rightorwrong("))(("));
+// console.log("rightworong", rightorwrong("))(("));
 // console.log(rightorwrong("("));
 
 function solution(p) {
@@ -32,18 +32,18 @@ function solution(p) {
       break;
     }
   }
-  console.log("p", p);
+  //   console.log("p", p);
   let u = p.slice(0, idx + 1);
   let v = p.slice(idx + 1, p.length);
-  console.log("u", u, "v", v);
+  //   console.log("u", u, "v", v);
   let stack = [];
   if (rightorwrong(u)) {
     // if (!v.length) return solution(v);
     let tmp = u.concat(solution(v));
     return tmp;
   } else {
-    console.log("v rec");
-    console.log(solution(v));
+    // console.log("v rec");
+    // console.log(solution(v));
     let tmp2 = "";
     for (var i = 0; i < u.length; i++) {
       if (u.charAt(i) == "(") tmp2 = tmp2.concat(")");
@@ -55,9 +55,9 @@ function solution(p) {
     //   .split("")
     //   .reverse()
     //   .join("");
-    console.log("tmp2", tmp2);
+    // console.log("tmp2", tmp2);
     let tmp = "(".concat(solution(v)).concat(")").concat(tmp2);
-    console.log("tmp", tmp);
+    // console.log("tmp", tmp);
     return tmp;
   }
 }
