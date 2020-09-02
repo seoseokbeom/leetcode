@@ -3,7 +3,7 @@ class Solution(object):
         ans = ['']*len(s)
         for i in range(len(s)):
             ans[indices[i]] = s[i]
-        return ''.join(ans)
+        return ''.join(i for i in ans)
 
 
 a = Solution()
