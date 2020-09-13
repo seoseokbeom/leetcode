@@ -1,43 +1,68 @@
-def solution(play_time, adv_time, logs):
-    # 2d arr.
-    arr = []
-    for i, log in enumerate(logs):
-        # logs[i] = ':'. join(logs[i].replace()
-        logs[i] = logs[i].replace(':', ' ')
-        logs[i] = logs[i].split('-')
-    s_arr = []
-    for i, log in enumerate(logs):
-        tmp = []
-        for j, time in enumerate(log):
-            log[j] = log[j].split()
-            s = 0
-            for k, hms in enumerate(log[j]):
-                if k == 0:
-                    s += int(hms) * (60**2)
-                elif k == 1:
-                    s += int(hms) * 60
-                elif k == 2:
-                    s += int(hms)
-            tmp.append(s)
-        s_arr.append(tmp)
-    print(s_arr)
+def solution(cards):
+    dealerMax = 0
+    dealerLow = 0
+    meMax = 0
+    meLow = 0
+    i = 0
+    mf = 0
+    df = 0
+    showcard = 0
+    result = 0
+    while(i < len(cards)):
+       if mf == 0 and cards[i] == 1:
+            meLow += 1
+            meMax += 11
+        else:
+            meLow += cards[i]
+            meMax += cards[i]
+        i += 1
+        if df == 0 and cards[i] == 1:
+            dealerMax = 11
+            dealerLow = 1
+        else:
+            dealerMax += cards[i]
+            dealerLow += cards[i]
+        i += 1
+        #
+        if mf == 0 and cards[i] == 1:
+            meLow += 1
+            meMax += 11
+        else:
+            meLow += cards[i]
+            meMax += cards[i]
+        i += 1
+        showcard = cards[i]
+        if df == 0 and cards[i] == 1:
+            dealerMax = 11
+            dealerLow = 1
+        else:
+            dealerMax += cards[i]
+            dealerLow += cards[i]
+        i += 1
+        if meMax > 21 and meLow > 21:
+            result -= 2
+        elif meMax == 21:
+            if dealerMax != 21:
+                result += 3
+        while (showcard == 1 or showcard >= 7) and (meLow >= 17 or 21 >= meMax >= 17):
+            meLow += cards[i]
+            meMax += cards[i]
+            i+=1
+            if meLow >21:
+                result -= 2
+                break
+        while 2 <=showcard<=3 and meLow<12 :
+            meLow += cards[i]
+            meMax += cards[i]
+            i+=1
 
-    acc_arr = []
-    for i, sec in enumerate(s_arr):
-        print('---')
-        if len(acc_arr) == 0:
-            acc_arr.append([sec[0], 1])
-            acc_arr.append([sec[1], 1])
-            pass
-        for j, s_arr in enumerate(acc_arr):
-            if(s_arr > sec):
-                pass
-            else:
-
-                # print(acc_arr)
-
-    return arr
-
-
-print(solution("02:03:55"	, "00:14:15"	, [
-      "01:20:15-01:45:14", "00:40:31-01:00:00", "00:25:50-00:48:29", "01:30:59-01:53:29", "01:37:44-02:02:30"]	))
+        # 6. 플레이어가 더이상 카드를 받지 않으면 딜러 앞의 뒤집어놓은 카드를 공개한 후, 딜러의 카드 합이 17 이상이 될 때까지 계속해서 딜러가 카드를 한 장씩 받는다.
+        while dealerLow<17:
+            if dealerMax==21 or dealerLow==21:
+                result-=2
+            dealerMax+=cards[i]
+            dealerLow+=cards[i]
+            i+=1
+        # 7. 승패를 가린다. 카드 합이 21에 더 가까운 사람이 이기며, 카드 합이 서로 같으면 비긴다.
+        if 
+             

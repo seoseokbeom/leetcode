@@ -18,9 +18,7 @@ class Solution(object):
             else:
                 dic[v] = dic[v]-1
         arr = []
-        print(dic)
         for i, v in enumerate(s):
-            # print(dic, i, v)
             if not len(dic):
                 arr.append(i)
             if not dic.get(v):
@@ -37,7 +35,6 @@ class Solution(object):
                 del dic[s[i+len(p)]]
             else:
                 dic[s[i+len(p)]] = dic[s[i+len(p)]]-1
-        # print(dic)
         return arr
 
 

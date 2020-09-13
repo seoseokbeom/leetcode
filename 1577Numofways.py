@@ -16,16 +16,13 @@ class Solution(object):
                     dic2[v] = 1
                 else:
                     dic2[v] = dic2[v]+1
-        print(dic1, dic2)
         cnt = 0
         for v in nums1:
             if dic2.get(v*v):
                 cnt += dic2.get(v*v)
-                print(cnt)
         for v in nums2:
             if dic1.get(v*v):
                 cnt += dic1.get(v*v)
-                print('2', cnt)
         return cnt
 
 

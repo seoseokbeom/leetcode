@@ -1,7 +1,8 @@
 class Solution(object):
     def diagonalSum(self, mat):
         sum = 0
-        for i in range(len(mat)):
+        size = len(mat)
+        for i in range(size):
             sum += mat[i][i]+mat[i][size-i-1]
         if(size % 2 == 1):
             sum -= mat[size//2][size//2]

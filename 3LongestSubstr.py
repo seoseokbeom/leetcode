@@ -4,8 +4,6 @@ class Solution(object):
         right = 0
         dic = {}
         maxlen = 0
-        if(len(s) == 0):
-            return 0
         for i, v in enumerate(s):
             if dic.get(v) == None:
                 maxlen = max(maxlen, i-left+1)
