@@ -10,11 +10,9 @@ class Solution(object):
             else:
                 dic[v] = 1
         # print(list(dic.keys()))
-        print(combinations(tuple(dic.keys()), 3))
-        # for key, value in dic.items():
-
-        # return dic
-
+        # print(combinations(tuple(dic.keys()), 3))
+        for key, value in dic.items():
+            
 
 a = Solution()
 print(a.threeSumMulti(A=[1, 1, 2, 2, 3, 3, 4, 4, 5, 5], target=8))

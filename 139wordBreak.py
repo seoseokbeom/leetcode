@@ -4,13 +4,13 @@ class Solution(object):
         visited = set()
         queue.append(s)
         while len(queue) != 0:
-            sliced_word = queue.pop(0)
-            if not sliced_word:
+            sliced_s = queue.pop(0)
+            if not sliced_s:
                 return True
             for i, v in enumerate(wordDict):
-                if sliced_word.find(v) == 0:
+                if sliced_s.find(v) == 0:
                     idx = len(v)
-                    tmp = sliced_word[idx:]
+                    tmp = sliced_s[idx:]
                     if tmp not in visited:
                         queue.append(tmp)
                     visited.add(tmp)

@@ -64,5 +64,4 @@ def solution(cards):
             dealerLow+=cards[i]
             i+=1
         # 7. 승패를 가린다. 카드 합이 21에 더 가까운 사람이 이기며, 카드 합이 서로 같으면 비긴다.
-        if 
              

@@ -33,7 +33,6 @@ def solution(maze):
     answer = 0
     leftdir = direc
     while True:
-
         leftdir = turnleft(direc)
         if(0 <= start[0]+D[leftdir][0] < N and 0 <= start[1]+D[leftdir][1] < N and maze[start[0]+D[leftdir][0]][start[1]+D[leftdir][1]] == 0):
             direc = leftdir

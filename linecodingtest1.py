@@ -13,7 +13,6 @@ def solution(boxes):
 
     print(set1)
     return len(set1)//2
-    # return answer
 
 
 print(solution([[1, 2], [2, 3], [3, 1]]		))

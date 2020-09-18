@@ -10,3 +10,5 @@ class Node:
 
 class Solution(object):
     def copyRandomList(self, head):
+      a = Node(head.val, Node(head.next.val), Node(head.random))
+      
