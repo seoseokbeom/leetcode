@@ -5,5 +5,6 @@ class Solution(object):
             res ^= 2*i+start
         return res
 
+
 a = Solution()
-print(a.xorOperation(n = 10, start = 5))
+print(a.xorOperation(n=1, start=1))
