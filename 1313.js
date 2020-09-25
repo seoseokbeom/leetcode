@@ -9,9 +9,7 @@ var decompressRLElist = function (nums) {
         if (i % 2 == 0) {
             freq = nums[i];
         } else {
-            for (var j = 0; j < freq; j++) {
-                arr.push(nums[i]);
-            }
+            arr.push(...Array(freq).fill(nums[i]));
         }
     }
     return arr;
