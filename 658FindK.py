@@ -15,11 +15,10 @@ class Solution(object):
         # print(l, r)
         res = []
         while k != 0 and (l >= 0 or r < len(arr)):
-            print(l, r, 'k', k)
             if r >= len(arr):
                 res.insert(0, arr[l])
                 l -= 1
-            elif l < 0 :
+            elif l < 0:
                 res.append(arr[r])
                 r += 1
             elif abs(arr[r]-x) >= abs(arr[l]-x):
@@ -28,7 +27,6 @@ class Solution(object):
             else:
                 res.append(arr[r])
                 r += 1
-            print(res)
             k -= 1
         return res
 

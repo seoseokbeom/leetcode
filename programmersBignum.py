@@ -1,6 +1,6 @@
 def solution(numbers):
     map(lambda x: str(x), numbers)
-    numbers.sort(key=lambda a, b: (a+b)-(b+a))
+    numbers.sort()
     return numbers
 
 
