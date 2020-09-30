@@ -17,6 +17,7 @@ def solution(n, costs):
                     viscopy = node[2].copy()
                     viscopy.add(key[1])
                     queue.append((val, cnt+value, viscopy))
+        
 
 
 print(solution(4, [[0, 1, 1], [0, 2, 2], [1, 2, 5], [1, 3, 1], [2, 3, 8]]	))

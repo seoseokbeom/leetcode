@@ -4,6 +4,8 @@ import re
 def solution(strn):
     cnt = 0
 
+def checkright(strn):
+    
 
 def recursion(strn):
     if len(strn) == 0:

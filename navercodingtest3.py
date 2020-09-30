@@ -11,6 +11,11 @@ def solution(n, edges):
     n = 0
     cnt = 0
     tmp = []
+    queue=[(0,1)]
+    node = queue.pop(0)
+    subarr = dic[node[0]]
+    
+
     while len(dic[n]) != 0:
         nodearr = dic[n]
         cnt += len(dic[n])-1
@@ -19,6 +24,9 @@ def solution(n, edges):
             tmp.append(nodearr[i])
             n = tmp.pop(0)
     return cnt
+
+# def recur(dic):
+
 
     # queue = [[(1, 2)], [(2, 2)]]
     # while queue:
