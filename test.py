@@ -10,4 +10,8 @@ class Solution(object):
 
 
 a = Solution()
-print(a.isMatch("aab", "c*a*b"))
+# print(a.isMatch("aab", "c*a*b"))
+
+b = 'abvcda'
+print(sorted(b))
+print(''.join(sorted(b)))
