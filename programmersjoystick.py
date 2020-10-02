@@ -1,4 +1,9 @@
 def solution(name):
-    c = 'J'
-    cnt1 = min(ord(c)-64, ord(Z)-ord(c))
-    print(cnt1)
+    res = 0
+    for c in name:
+        cnt1 = min(ord(c)-64, ord('Z')-ord(c))
+        res += cnt1
+    return res
+
+
+print(solution("JEROEN"))

@@ -1,17 +1,13 @@
-import re
+def solution(n):
+    dp = [0] * (n+2)
+    dp[1] = 1
+    dp[2] = 2
+    if n <= 2:
+        return dp[n]
+    for i in range(3, n+1):
+        dp[i] = dp[i-1]+dp[i-2]
+    return dp[n] % 1000000007
 
 
-class Solution(object):
-    def isMatch(self, s, p):
-        m = re.search(p, s)
-        print(s, p)
-        print(m.group())
-        return s == m.group()
-
-
-a = Solution()
-# print(a.isMatch("aab", "c*a*b"))
-
-b = 'abvcda'
-print(sorted(b))
-print(''.join(sorted(b)))
+# for i in range(1, 300):
+print(solution(60000))
