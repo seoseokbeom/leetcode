@@ -14,3 +14,7 @@ class Solution:
         if node.right:
             self.recursion(node.right)
             self.res.append(node.right.val)
+
+
+a = Solution()
+print(a.increasingBST())

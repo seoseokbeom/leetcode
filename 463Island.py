@@ -1,6 +1,5 @@
 class Solution:
     def islandPerimeter(self, grid) -> int:
-        print(grid)
         for i, arr in enumerate(grid):
             grid[i].insert(0, 0)
             grid[i].append(0)
