@@ -1,54 +1,56 @@
-from random import randint
+from collections import defaultdict
 
 
-def solution(A):
-    dp = [0 for _ in range(len(A)+1)]
-    dp[0] = 1
-    for v in A:
-        dp[v] += 1
-    i, j = 1, 1
-    # i for finding 0, j for finding val>1
-    cnt = 0
-    # print(dp)
-    while i < len(dp) and j < len(dp):
-        while i < len(dp) and dp[i] != 0:
-            i += 1
-        while j < len(dp) and dp[j] <= 1:
-            j += 1
-        # print(i, j, cnt)
-        if i >= len(dp) and j >= len(dp):
-            break
-        if i == len(dp) or j == len(dp):
-            return -1
-        cnt += abs(i-j)
-        dp[i] += 1
-        dp[j] -= 1
-        i += 1
-    if cnt > 1000000000:
-        return -1
-    else:
-        return cnt
+def solution(n, edges):
+    arr = [[0 for _ in range(n+1)] for _ in range(n+1)]
+    dic = defaultdict(list)
+    for a, b in edges:
+        dic[a].append(b)
+        dic[b].append(a)
+        arr[a][b] = arr[b][a] = 1
+    # print(dic)
+    for a, b in edges:
+        vis = set()
+        vis.add(a)
+        vis.add(b)
+        rec(a, b, arr, vis, dic, 2)
+        rec(b, a, arr, vis, dic, 2)
+    # for row in arr:
+    #     print(row)
+    mx = float('-inf')
+    for i in range(1, len(arr)-2):
+        for j in range(i+1, len(arr)-1):
+            for k in range(j+1, len(arr)):
+                tmp = sorted([arr[j][i], arr[k][i], arr[k][j]])
+                mx = max(mx, tmp[1])
+    return mx
+
+    # newarr = []
+    # for i, row in enumerate(arr):
+    #     newarr.extend(row[1:i])
+    # newarr.sort(reverse=True)
+    # return newarr[1]
+
+    # f, s, t = float('-inf'), float('-inf'), float('-inf')
+    # for i in range(1, len(arr)):
+    #     for j in range(1, i):
+    #         if arr[i][j] >
+
+    for row in arr:
+        print(row)
+
+    return arr
 
 
-# def findclosest(dp, i):
-#     k=1
-#     while True:
-#         if i-k >=0:
-#             if dp[i-k] >1 :
-#                 dp[i-k]-=1
-#                 break
-#         if i+k < len(dp):
-#             if dp[i+k] >1:
-#                 dp[i+k]-=1
-#                 break
-# for i in range(1):
-#     def intgen(n):
-#         for _ in range(n):
-#             return [randint(1, n) for _ in range(n)]
+def rec(num, newnum, arr, vis, dic, cnt):
+    elemlist = dic[newnum]
+    for e in elemlist:
+        if e not in vis:
+            arr[num][e] = cnt
+            arr[e][num] = cnt
+            vis.add(e)
+            rec(num, e, arr, vis, dic, cnt+1)
 
-#     test = intgen(200000)
-#     # print(test)
-#     # print(solution([6, 2, 3, 5, 6, 3]))
-#     print(solution(test))
 
-print(solution([1, 1, 2]))
+print(solution(5, [[1, 2], [2, 3], [3, 4], [3, 5]]	))
+# print(solution(5, [[1, 5], [2, 5], [3, 5], [4, 5]]	))

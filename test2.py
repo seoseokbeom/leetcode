@@ -1,29 +1,26 @@
-
-import random
-import string
-
-# if S is None or len(S)==0:
-#     return []
-
-
-def solution(S):
-    for i in range(len(S)-1):
-        for j in range(i+1, len(S)):
-            befstr = S[i]
-            aftstr = S[j]
-            for k in range(len(S[0])):
-                if befstr[k] == aftstr[k]:
-                    return [i, j, k]
-    return []
+def solution(arr):
+    global ones
+    global zeros
+    ones = sum(sum(row) for row in arr)
+    zeros = len(arr)*len(arr[0])-ones
+    rec(arr)
+    return [zeros, ones]
 
 
-def get_random_string(length):
-    letters = string.ascii_lowercase
-    result_str = ''.join(random.choice(letters) for i in range(length))
-    print("length", length, "is:", result_str)
-    return result_str
-
-
-test = ['aaa', 'bbb', 'cda']
-# test = [get_random_string(300) for _ in range(100)]
-print(solution(test))
+def rec(arr):
+    if len(arr) == 0 or len(arr) % 2 == 1:
+        return
+    global ones
+    global zeros
+    if sum(sum(row) for row in arr) == 0:
+        zeros = zeros - len(arr)*len(arr[0])+1
+    elif sum(sum(row) for row in arr) == len(arr)*len(arr[0]):
+        ones = ones-len(arr)*len(arr[0])+1
+    else:
+        lenrow = len(arr)//2
+        for i, row in enumerate(arr):
+            arr[i] = [arr[i][:lenrow], arr[i][lenrow:]]
+        rec([arr[i][0] for i in range(lenrow)])
+        rec([arr[i+lenrow][0] for i in range(lenrow)])
+        rec([arr[i][1] for i in range(lenrow)])
+        rec([arr[i+lenrow][1] for i in range(lenrow)])
