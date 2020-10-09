@@ -1,8 +1,12 @@
-class Solution(object):
+class Solution:
     def reverseString(self, s):
-        print(s[::-1])
-        s = s[::-1]
-        print(s)
+        i, j = 0, len(s)-1
+        s = list(s)
+        while i < j:
+            s[i], s[j] = s[j], s[i]
+            i += 1
+            j -= 1
+        return ''.join(s)
 
 
 a = Solution()
