@@ -1,3 +1,6 @@
 {
-  "workbench.tree.indent": 4
+  "workbench.tree.indent": 4,
+  "files.associations": {
+    "iostream": "cpp"
+  }
 }
