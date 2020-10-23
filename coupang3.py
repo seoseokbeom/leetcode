@@ -13,11 +13,13 @@ def solution(k, score):
         dic2[v-score[i+1]].add(i+2)
     res = len(score)
     print(dic2)
+    dic3 = defaultdict(set)
     for key, val in dic1.items():
         print(key, val)
         if val >= k:
-            res -= len(dic2[key])
-    return res
+            dic3.union(dic2[key])
+    return res-dic3.len
 
 
+print(solution(3, [24, 22, 20, 10, 5, 3, 2, 1]))
 print(solution(3, [24, 22, 20, 10, 5, 3, 2, 1]))

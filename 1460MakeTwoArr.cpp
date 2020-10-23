@@ -31,5 +31,5 @@ int main()
         cout << x << endl;
     vector<int> a{1, 2, 3, 4};
     vector<int> b{2, 4, 1, 3};
-    cout << a1.canBeEqual(a, b);
+    cout << 'true' if;
 }

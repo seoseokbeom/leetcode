@@ -12,6 +12,7 @@ def solution(n, cnt):
             c += 1
         if c > 2*cnt:
             arr2[i] = arr1[i]
+
     return ''.join(map(lambda e: str(e), arr2))
 
     # strn = str(n)
@@ -30,12 +31,13 @@ def solution(n, cnt):
     # return (int(strn))
 
 
-n = int(input())
+# n = int(input())
 
 
-for i in range(1, n+1):
-    a, b = map(int, input().split())
-    ans = solution(a, b)
-    print('#{} {}'.format(i, ans))
+# for i in range(1, n+1):
+#     a, b = map(int, input().split())
+#     ans = solution(a, b)
+#     print('#{} {}'.format(i, ans))
 
-# print(solution(2737, 1               ))
+print(solution(54321, 2))
+print(solution(54321, 2))

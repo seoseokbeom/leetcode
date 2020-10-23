@@ -5,7 +5,7 @@ import string
 def solution(s):
     res = 0
     cnt = 0
-    dp = [[0 for _ in range(len(s))] for _ in range(len(s))]
+    # dp = [[0 for _ in range(len(s))] for _ in range(len(s))]
     for j in range(len(s)):
         cnt = 1
         mid = -1

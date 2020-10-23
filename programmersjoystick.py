@@ -49,13 +49,12 @@ print(solution("BBAABAABB"))
 # print(solution("BBABAAAB"))
 
 
-
 def solution(n, arr1, arr2):
     res = []
-for de1, de2 in zip(arr1, arr2):
-b = str(bin(de1 | de2))[2:]
-b = '0' * (n - len(b)) + b
-b = b.replace('1', '#')
-b = b.replace('0', ' ')
-res.append(b)
-return res
+    for de1, de2 in zip(arr1, arr2):
+    b = str(bin(de1 | de2))[2:]
+    b = '0' * (n - len(b)) + b
+    b = b.replace('1', '#')
+    b = b.replace('0', ' ')
+    res.append(b)
+    return res
