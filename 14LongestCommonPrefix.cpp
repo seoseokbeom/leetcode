@@ -4,6 +4,7 @@
 #include <algorithm>
 using namespace std;
 
+
 string longestCommonPrefix(vector<string> &strs)
 {
     string res = "";

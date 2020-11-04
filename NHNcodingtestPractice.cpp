@@ -1,19 +1,69 @@
 #include <iostream>
 #include <sstream>
-#include <string>
 #include <vector>
+#include <algorithm>
+#include <queue>
 using namespace std;
 
-using namespace std;
+vector<int> resarr;
+int numIslands(vector<vector<int>> &grid)
+{
+    int m = grid.size(), n = m ? grid[0].size() : 0, area = 0, offsets[] = {0, 1, 0, -1, 0};
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            int cnt = 0;
+            if (grid[i][j] == 1)
+            {
+                cnt++;
+                queue<pair<int, int>> node;
+                area++;
+                grid[i][j] = 0;
+                node.push({i, j});
+                while (!node.empty())
+                {
+                    pair<int, int> p = node.front();
+                    node.pop();
+                    for (int k = 0; k < 4; k++)
+                    {
+                        int r = p.first + offsets[k], c = p.second + offsets[k + 1];
+                        if (r >= 0 && r < m && c >= 0 && c < n && grid[r][c] == 1)
+                        {
+                            cnt++;
+                            grid[r][c] = 0;
+                            node.push({r, c});
+                        }
+                    }
+                }
+                resarr.push_back(cnt);
+            }
+        }
+    }
+    return area;
+}
 
 void solution(int sizeOfMatrix, int **matrix)
 {
-    // TODO: 이곳에 코드를 작성하세요.
-}
+    vector<vector<int>> arr;
+    for (int i = 0; i < sizeOfMatrix; i++)
+    {
+        vector<int> miniarr;
+        for (int j = 0; j < sizeOfMatrix; j++)
+        {
+            miniarr.push_back(matrix[i][j]);
+        }
+        arr.push_back(miniarr);
+    }
+    int res = numIslands(arr);
+    cout << res << endl;
+    sort(resarr.begin(), resarr.end());
 
-void dfs(vector<vector<int>> arr, int i, int j)
-{
-
+    for (int i = 0; i < resarr.size(); i++)
+    {
+        cout << resarr[i] << ' ';
+    }
+    cout << endl;
 }
 
 struct input_data

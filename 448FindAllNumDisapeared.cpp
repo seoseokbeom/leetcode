@@ -5,19 +5,16 @@ using namespace std;
 vector<int> findDisappearedNumbers(vector<int> &nums)
 {
     vector<int> dp(nums.size() + 1);
-    for (int i = 0; i < nums.size(); i++)
-    {
+    for (int i = 0; i < nums.size(); i++) {
         dp[nums[i]] = 1;
     }
-    vector<int> resarr;
-    for (int i = 1; i < dp.size(); i++)
-    {
-        if (dp[i] == 0)
-        {
-            resarr.push_back(i + 1);
+    vector<int> res;
+    for (int i = 1; i < dp.size(); i++) {
+        if (dp[i] == 0) {
+            res.push_back(i);
         }
     }
-    return resarr;
+    return res;
 }
 
 int main()

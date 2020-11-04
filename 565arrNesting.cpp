@@ -14,7 +14,6 @@ int arrayNesting(vector<int> &nums)
         while (nums[v] >= 0)
         {
             cnt++;
-            cout << v << endl;
             auto k = nums[v];
             nums[v] = -1;
             v = k;
