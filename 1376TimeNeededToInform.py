@@ -4,7 +4,6 @@ class Solution(object):
         res = 0
 
         def find(idx, cost):
-            print(idx, cost)
             if idx == headID:
                 global res
                 res = max(res, cost)

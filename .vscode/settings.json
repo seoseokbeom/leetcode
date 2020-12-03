@@ -6,6 +6,7 @@
     "xstring": "cpp",
     "iosfwd": "cpp",
     "queue": "cpp",
-    "sstream": "cpp"
+    "sstream": "cpp",
+    "vector": "cpp"
   }
 }
