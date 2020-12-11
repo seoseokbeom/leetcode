@@ -1,20 +1,28 @@
 from collections import deque
 
-# def bfs(arr, idx, flag):
 global mx
 mx = 0
 
+cnt = int(input())
+queue = deque()
+for i in range(cnt):
+    queue.appendleft(int(input()))
 
-# def dfs(arr, idx, flag, score):
-#     global mx
-#     mx = max(mx, score)
-#     if idx >= len(arr):
-#         return
-#     score += arr[idx]
-#     dfs(arr, idx+2, 0, score)
-#     if flag == 0:
-#         dfs(arr, idx+1, 1, score)
 
+def dfs(arr, idx, flag, score):
+    global mx
+    mx = max(mx, score)
+    if idx >= len(arr):
+        return
+    score += arr[idx]
+    dfs(arr, idx+2, 0, score)
+    if flag == 0:
+        dfs(arr, idx+1, 1, score)
+
+dfs(queue,0,0,0)
+print(mx)
+
+from collections import deque
 
 cnt = int(input())
 queue = deque()
